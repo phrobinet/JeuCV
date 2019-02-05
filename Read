@@ -1,1 +1,3 @@
-sdfqsd
+Mon petit jeu fonctionne pas trop mal. 
+Mais j'ai un petit problème, lorsque j'actualise mon index.html mon image instruction s'affiche mais l'animation de mon jeu est aussi 
+lancé et j'aimerai que cette animation ne se lance que quand on clique sur le rat.
