@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'brizel';
+    src: url(Brizel.ttf)  format('truetype'),
+}
+#nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#parent{
+    display: flex;
+}
+
+#deux{
+    height: 500px;
+    width: 70%;
+    justify-content: center;
+
+}
+#sousparent{
+    display: flex;
+    flex-direction: column;
+}
+
+#un{
+    width: 25%;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+}
+#start{
+    width: 100px;
+    height: 40px;
+    font-size: 1.5em;
+}
+
+p{
+    font-family: brizel;
+    font-size: 2em;
+}
+
+#cv{
+    width:700px;
+    border: 1px solid black;
+    display: none;
+    position: absolute;
+    margin-top: -500px;
+    margin-left: 30%;
+    background-color: #fff;
+    text-align: center;
+}
+
+#cvimg{
+    width: 700px;
+}
+
+#c,
+#d, 
+#e,
+#f,
+#g,
+#h,
+#i, 
+#j,
+#k, 
+#l {
+    opacity: 0;
+}
+#myCanvas{
+    display: none;
+}
+#instru{
+    display: inline;
+}
+
+
+@media screen and (max-width: 1000px){
+    #parent{
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+    #un{
+        width: 100%;
+    }
+    #deux{
+        width: 100%;
+    }
+    #cv{
+        margin-top: -1000px;
+        margin-left: 80px
+    }
+
+
+}
