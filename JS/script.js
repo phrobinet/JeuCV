@@ -1,7 +1,7 @@
 
 
-(function () {
-    window.addEventListener('DOMContentLoaded', function () {
+function game() {
+    // window.addEventListener('DOMContentLoaded', function () {
 
 
         /*************************************************************************/
@@ -206,7 +206,7 @@
         /*************************************************************************/
         /***********************************RAF***********************************/
         /*************************************************************************/
-        function gameTime (timestamp) {
+        function gameTime(timestamp) {
             
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
@@ -355,7 +355,7 @@
                 });
             myAnimation = window.requestAnimationFrame(gameTime)
         };
-        myAnimation = window.requestAnimationFrame(gameTime)
-       
-    });
-})();
+        
+    // });
+    myAnimation = window.requestAnimationFrame(gameTime)
+};
