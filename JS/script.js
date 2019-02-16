@@ -42,6 +42,7 @@ function game() {
         var cv = false;
 
 
+
       /////////////////////////  IMAGE FOND  ////////////////////////////////////
 
       var x = 0;
@@ -80,32 +81,7 @@ function game() {
       ctx.drawImage(levier, 0, 706, 308, 354, xLevier, 260, 130, 180);
       
 
-    //////////////////////  FONCTION CONSTRUCTOR  ////////////////////////////////
 
-    
-    var ConstructeurCrabe = function(cordo){
-        this.i = new Image();
-        this.img = 'i';
-        this.x = 'sprite.crabe[indexTabCrabe][0]';
-        this.y = 'sprite.crabe[indexTabCrabe][1]';
-        this.sw = 'sprite.crabe[indexTabCrabe][2]';
-        this.sh = 'sprite.crabe[indexTabCrabe][3]';
-        this.xcrabe = cordo;
-        this.ycrabe = 170;
-        this.wcrabe = 80;
-        this.hcrabe = 120;
-        };
-
-        ConstructeurCrabe.prototype.draw = function () {
-            var i = new Image();
-            i.src = "Image/imageSprite.png";
-            var dessin = ctx.drawImage(this.img, this.x, this.y, this.sw, this.sh, this.xcrabe, this.ycrabe, this.wcrabe, this.hcrabe)
-        };
-        
-        
-        var mechant = new ConstructeurCrabe(x + 910);
-        crabeTab.push(mechant)
-        console.log(crabeTab);
                /*************************************************************************/
                 /***********************************KEY CODE*****************************/
                 /*************************************************************************/
@@ -116,24 +92,15 @@ function game() {
                                 vaADroite = false;
                             } else {
                             vaADroite = true;
-                            console.log('down droit')
                             }
-                            break;
-                        case 38: // Haut
-                            if (touch){
-
-                            }else {
-                            vaEnHaut = true;
-                            console.log('down haut' + vaEnHaut )
-                        }
                             break;
                         case 32: // Espace
                             if(touch){
 
                             }else {
                             plafond ++;
-                           console.log('space' + plafond)
                             }
+                        break;
                     }
                 })
 
@@ -141,17 +108,12 @@ function game() {
                     switch (verrifClavier.keyCode) {
                         case 39: // Droit
                             vaADroite = false;
-                            console.log('up droit')
                             break;
-                        case 37: // Gauche
-                            vaAGauche = false;
-                            console.log('up gauche')
-                            break;
+                        case 32: // Espace
+                        if(touch){
 
-                        case 38: // Haut
-                            vaEnHaut = false;
-                            console.log('up haut')
-                            break;
+                        }
+                           
                            
                     }
                 })
@@ -161,23 +123,21 @@ function game() {
         /*************************************************************************/
         /******************************* FONCTION *******************************/
         /*************************************************************************/
-         var run = function(){
-            if (x < -2813) {
+         var run = function(){ // Fonction permettant de faire bouger la souris
+            if (x < -2813) { // Les 2 images backgrounds reviennent à x = o
                     x = 0;
                 }
-            if (aze < 200) {
+            if (aze < 200) { // Si le x de la souris est infèrieur à 200
                     aze += 10;
-                    console.log(aze)
-                } else {
+                } else { // Quand la souris est égale à 200, c'est le baxkgournd qui bouge
                     x -= 10;
                     xLevier -=10;
                 }
                 score++
-                console.log('score = ' + score);
          };
 
          var runAnimation = function(){
-
+            // Cette fonction permet de faire articulier les différents personnages
              if (comptani1 > 2){
                  if(indexTab >= sprite.run.length -1){
                     indexTab = 0;
@@ -191,23 +151,23 @@ function game() {
          };
 
 
-         var background = function(){
+         var background = function(){ // Afichage du background
             ctx.drawImage(imageBackground, x, 0, 2813, 500);
             ctx.drawImage(imageBackground, x + 2813, 0, 2813, 500);
             
          };
 
-         var die = function(){
+         var die = function(){ // Lorsque la souris touche un crabe
             touch = true;
             ctx.drawImage(go, 0, 0, 900, 500);
-            window.cancelAnimationFrame(myAnimation);
+            cancelAnimationFrame(myAnimation);
          }
 
         /*************************************************************************/
         /***********************************RAF***********************************/
         /*************************************************************************/
         function gameTime(timestamp) {
-            
+            console.log('request')
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
             if (vaADroite) {
@@ -228,16 +188,6 @@ function game() {
                 console.log('y' + y)
             } else {
             }
-
-            // if (!timeStampDeBase){
-            //     timeStampDeBase = timestamp;
-            // }
-            // if ( timestamp - timeStampDeBase > 40){
-            //     console.log();
-            //     timeStampDeBase = timestamp;
-            //     // code
-            //     augmenteLaLargeur();
-            // }
             background()
 
             ctx.drawImage(levier, 0, 706, 308, 354, 1500, 260, 130, 180);
@@ -273,9 +223,9 @@ function game() {
             
             ctx.drawImage(levier, sprite.levier[indexLevier][0], sprite.levier[indexLevier][1], sprite.levier[indexLevier][2], sprite.levier[indexLevier][3], xLevier, 260, 130, 180);
 
-            if (aze < xLevier + 100 && aze + 90 > xLevier && y < 260 + 150 && y + 140 > 260) {indexLevier = 2; cv = true}
-            
 
+            
+            // Dessin des crabes au plafond
              ctx.save();
                 ctx.translate(0, 430);
                 ctx.scale(1, -1);
@@ -290,9 +240,10 @@ function game() {
                 
             ctx.restore();
 
-            
+                //Quand la souris arrive au niveau du levier (action du levier, afichage du cv et isolation du requestanimationframe)
+                if (aze < xLevier + 100 && aze + 90 > xLevier && y < 260 + 150 && y + 140 > 260) {indexLevier = 2; cv = true; touch = true}
 
-
+                // Les différents calcules pour savoir s'il y a collision
                 if(plafond%2== 0){
                     if (aze < xcrabe + (swcrabe - 30) && aze + 90 > xcrabe && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die()}
                     if (aze < xcrabe + 200 + (swcrabe - 30) && aze + 90 > xcrabe + 200 && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die()}
@@ -303,7 +254,6 @@ function game() {
                     if (aze < xcrabe + 4200 + (swcrabe - 30) && aze + 90 > xcrabe + 4200 && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die()}
                     if (aze < xcrabe + 5100 + (swcrabe - 30) && aze + 90 > xcrabe + 5100 && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die}
                 } else {
-                    // if (aze < xcrabe + (swcrabe - 30) && aze + 90 > xcrabe && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {alert('collision')}
                     if (aze < xcrabe + 500 + (swcrabe - 30) && aze + 90 > xcrabe + 500 && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die()}
                     if (aze < xcrabe + 1100 + (swcrabe - 30) && aze + 90 > xcrabe + 1100 && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die()}
                     if (aze < xcrabe + 1700 + (swcrabe - 30) && aze + 90 > xcrabe + 1700 && y < ycrabe + (sycrabe-30) && y + 140 > ycrabe) {die()}
@@ -318,7 +268,7 @@ function game() {
             }
 
             $(function(){
-
+                // Affichage des différentes compétences 
                 if(score > 50){
                     $('#c').animate({opacity:1},900);
                 }
@@ -353,9 +303,11 @@ function game() {
                     $('#cv').fadeIn('slow');
                 }
                 });
-            myAnimation = window.requestAnimationFrame(gameTime)
+                if(touch != true){
+                    window.requestAnimationFrame(gameTime)
+                    console.log('touch')
+                }
         };
         
-    // });
     myAnimation = window.requestAnimationFrame(gameTime)
 };
