@@ -6,20 +6,37 @@
     display: flex;
     justify-content: space-evenly;
 }
+body{
+    background-image: url("Image/backsite.jpg");
+    background-size: cover;
+}
 
 #parent{
     display: flex;
+}
+#competence{
+    width : 100%;
+    text-align: center;
+    font-family: brizel;
+    margin-top: 15px;
+    text-decoration: underline blacks;
+    color: grey;
+}
+a{
+    color: grey;
 }
 
 #deux{
     height: 500px;
     width: 70%;
     justify-content: center;
+    border: 2px solid black;
 
 }
 #sousparent{
     display: flex;
     flex-direction: column;
+
 }
 
 #un{
@@ -33,7 +50,7 @@
 #start{
     width: 100px;
     height: 40px;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 p{
@@ -47,7 +64,7 @@ p{
     display: none;
     position: absolute;
     margin-top: -500px;
-    margin-left: 30%;
+    margin-left: 34%;
     background-color: #fff;
     text-align: center;
 }
@@ -56,9 +73,6 @@ p{
     width: 700px;
 }
 
-#page{
-    position: fixed;
-}
 
 #c,
 #d, 
@@ -93,7 +107,7 @@ p{
     }
     #cv{
         margin-top: -1000px;
-        margin-left: 80px
+        margin-left: 110px
     }
 
 

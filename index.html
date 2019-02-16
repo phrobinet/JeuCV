@@ -8,49 +8,51 @@
     
 </head>
 <body>
-    <div id="page">
-  <header>
-    <h1>Bienvenue sur mon jeu CV</h1>
-  </header>
-  <nav id="nav">
+<div id="page">
+    <head>
+    <nav id="nav">
       <div id="a">
-          <p>Acceuil</p>
+          <p><a href="#">Accueil</a> </p>
       </div>
       <div id="b">
           <p><a href="CV.pdf">CV</a></p>
       </div>
-  </nav>
+    </nav>
+</head>
+
   <section>
 
     <div id="parent">
         <div id="un">
-                <div> <img src="Image/htmlcss.png" alt="" id="c"> </div>
-                <div><img src="Image/javascript.png" alt="" id="d"></div>
-                <div><img src="Image/git.png" alt="" id="e"></div>
-                <div><img src="Image/AJAX.png" alt="" id="f"></div>
-                <div><img src="Image/AngularJs.png" alt="" id="g"></div>
-                <div><img src="Image/bootstrap.png" alt="" id="h"></div>
-                <div><img src="Image/nodejs.png" alt="" id="i"></div>
-                <div><img src="Image/jquery.png" alt="" id="j"></div>
-                <div><img src="Image/Meteor.png" alt="" id="k"></div>
-                <div><img src="Image/mongodb.png" alt="" id="l"></div>
+            <span  id="competence"><h2>Mes compétences</h2></span>
+            
+                <div> <img src="Image/htmlcss.png" alt="html/css" id="c" class="compe"> </div>
+                <div><img src="Image/javascript.png" alt="javascript" id="d" class="compe"></div>
+                <div><img src="Image/git.png" alt="git" id="e" class="compe"></div>
+                <div><img src="Image/AJAX.png" alt="ajax" id="f" class="compe"></div>
+                <div><img src="Image/AngularJs.png" alt="angular js" id="g" class="compe"></div>
+                <div><img src="Image/bootstrap.png" alt="bootstrap" id="h" class="compe"></div>
+                <div><img src="Image/nodejs.png" alt="nodejs" id="i" class="compe"></div>
+                <div><img src="Image/jquery.png" alt="jquery" id="j" class="compe"></div>
+                <div><img src="Image/Meteor.png" alt="meteor" id="k" class="compe"></div>
+                <div><img src="Image/mongodb.png" alt="mogodb" id="l" class="compe"></div>
         </div>
         <div id="sousparent">
             <div id="deux">
                 <canvas id="myCanvas" width="900" height="500"></canvas>
-                <img src="Image/instruction.png" alt="" id="instru">
+                <img src="Image/instruction.png" alt="Insctruction" id="instru">
             </div>
             <div>
-                <img src="Image/souris.png" alt="" id="souris">
+                <img src="Image/souris.png" alt="souris" id="souris">
             </div>
         </div>
     </div>
-  </section>
     </div>
     <div id="cv">
         <p>Bravo, vous avez le droit de consulter mon CV</p>
-        <img src="Image/CV.jpg" alt="" id="cvimg" width="700">
+        <img src="Image/CV.jpg" alt="MonCV" id="cvimg" width="700">
     </div>
+  </section>
     <script src="JS/script.js"></script>
     <script src="JS/tabAnimation.js"></script>
     <script>
@@ -60,10 +62,14 @@
                 $('#myCanvas').toggle();
                 cv = false;
                 game();
+                $('#cv').fadeOut();
 
             });
+            $('#cv').click(function(){
+                $('#cv').css('display', 'none');
+            })
         });
-        
+
         
     </script>
 
