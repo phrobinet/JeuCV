@@ -1,8 +1,5 @@
 #ATELIER FRONT *le CV jeu*
 
-------------
-
-
 #### Le principe de l'activité :
 
 Vous devez réaliser un jeu en JavaScript. 
