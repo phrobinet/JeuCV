@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <title>Jeu CV</title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
-    <script src="JS/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // Script qui me permet de savoir s'il y a une nouvelle connexion sur le site
+    const gas = 'https://script.google.com/macros/s/AKfycbzJkipjEKWLOZaK_K6OTSqEYMqjVNR22vuQFBunFbwpIsmB6h8/exec';
+    fetch('https://api.ipify.org?format=text')
+    .then(r => r.text())
+    .then(r => fetch(`${gas}?IP=${r}`))
+    .then(r2 => r2.json())
+    .then(r3 => console.log(r3))
+    </script>
+    
     
 </head>
 <body>
@@ -50,13 +60,13 @@
     </div>
     <div id="cv">
         <p>Bravo, vous avez le droit de consulter mon CV</p>
-        <img src="Image/CV.jpg" alt="MonCV" id="cvimg" width="700">
+        <img src="/Image/CV.jpg" alt="MonCV" id="cvimg">
     </div>
   </section>
     <script src="JS/script.js"></script>
     <script src="JS/tabAnimation.js"></script>
     <script>
-         $(function(){
+        $(function(){
             $('#souris').click(function(){
                 $('#instru').toggle();
                 $('#myCanvas').toggle();

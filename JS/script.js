@@ -45,44 +45,44 @@ function game() {
 
       /////////////////////////  IMAGE FOND  ////////////////////////////////////
 
-      var x = 0;
-      var imageBackground = new Image();
-      imageBackground.src = "Image/bgTunnelpetit.png";
-      ctx.drawImage(imageBackground, x, 0, 2813, 500)
+    var x = 0;
+    var imageBackground = new Image();
+    imageBackground.src = "Image/bgTunnelpetit.png";
+    ctx.drawImage(imageBackground, x, 0, 2813, 500)
 
       /////////////////////////  IMAGE SOURIS  ////////////////////////////////////
 
-      var aze = 20;
-      var y = 170;
-      var souris = new Image();
-      souris.src = "Image/imageSprite.png";
-      ctx.drawImage(souris, 0, 0, 461, 354, aze, y, 130, 180);
+    var aze = 20;
+    var y = 170;
+    var souris = new Image();
+    souris.src = "Image/imageSprite.png";
+    ctx.drawImage(souris, 0, 0, 461, 354, aze, y, 130, 180);
 
       /////////////////////////  IMAGE CRABE  ////////////////////////////////////
 
-      var azecrabe = 620;
-      var y = 170;
-      var crabe = new Image();
-      crabe.src = "Image/imageSprite.png";
-      ctx.drawImage(crabe, 0, 354, 397, 354, azecrabe, y, 130, 180);
-      
+    var azecrabe = 620;
+    var y = 170;
+    var crabe = new Image();
+    crabe.src = "Image/imageSprite.png";
+    ctx.drawImage(crabe, 0, 354, 397, 354, azecrabe, y, 130, 180);
+
       /////////////////////////  IMAGE GAME OVER    ////////////////////////////////////
 
-      
-      var go = new Image();
-      go.src = "Image/gameOver.png";
-      ctx.drawImage(go, 0, 0, 900, 500);
+
+    var go = new Image();
+    go.src = "Image/gameOver.png";
+    ctx.drawImage(go, 0, 0, 900, 500);
 
       /////////////////////////  IMAGE LEVIER  ////////////////////////////////////
 
-      var xLevier = 6000;
-      var levier = new Image();
-      levier.src = "Image/imageSprite.png";
-      ctx.drawImage(levier, 0, 706, 308, 354, xLevier, 260, 130, 180);
-      
+    var xLevier = 6000;
+    var levier = new Image();
+    levier.src = "Image/imageSprite.png";
+    ctx.drawImage(levier, 0, 706, 308, 354, xLevier, 260, 130, 180);
+    
 
 
-               /*************************************************************************/
+                /*************************************************************************/
                 /***********************************KEY CODE*****************************/
                 /*************************************************************************/
                 window.addEventListener('keydown', function (verrifClavier) {
@@ -113,8 +113,7 @@ function game() {
                         if(touch){
 
                         }
-                           
-                           
+
                     }
                 })
 
@@ -129,39 +128,38 @@ function game() {
                 }
             if (aze < 200) { // Si le x de la souris est infèrieur à 200
                     aze += 10;
-                } else { // Quand la souris est égale à 200, c'est le baxkgournd qui bouge
+                } else { // Quand la souris est égale à 200, c'est le backgournd qui bouge
                     x -= 10;
                     xLevier -=10;
                 }
                 score++
-         };
 
-         var runAnimation = function(){
+        var runAnimation = function(){
             // Cette fonction permet de faire articulier les différents personnages
-             if (comptani1 > 2){
-                 if(indexTab >= sprite.run.length -1){
+            if (comptani1 > 2){
+                if(indexTab >= sprite.run.length -1){
                     indexTab = 0;
-                 } else{ 
-                 indexTab ++;
-                 console.log(('index : ' + indexTab))
+                } else{ 
+                indexTab ++;
+                console.log(('index : ' + indexTab))
                 }
-                 comptani1 = 0 ;
-             } comptani1 ++;
-             return indexTab;
-         };
+                comptani1 = 0 ;
+            } comptani1 ++;
+            return indexTab;
+        };
 
 
          var background = function(){ // Afichage du background
             ctx.drawImage(imageBackground, x, 0, 2813, 500);
             ctx.drawImage(imageBackground, x + 2813, 0, 2813, 500);
             
-         };
+        };
 
          var die = function(){ // Lorsque la souris touche un crabe
             touch = true;
             ctx.drawImage(go, 0, 0, 900, 500);
             cancelAnimationFrame(myAnimation);
-         }
+        }
 
         /*************************************************************************/
         /***********************************RAF***********************************/
@@ -177,9 +175,9 @@ function game() {
                 }
 
             if(touch){
-                     xcrabe;
-                 }
-                 else{
+                    xcrabe;
+                }
+                else{
                 xcrabe -= 2
             }  
 
@@ -226,7 +224,7 @@ function game() {
 
             
             // Dessin des crabes au plafond
-             ctx.save();
+            ctx.save();
                 ctx.translate(0, 430);
                 ctx.scale(1, -1);
                 ctx.drawImage(crabe, sprite.crabe[indexTab][0], sprite.crabe[indexTab][1], sprite.crabe[indexTab][2], sprite.crabe[indexTab][3], xcrabe + 500, ycrabe, swcrabe, sycrabe);

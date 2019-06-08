@@ -7,8 +7,9 @@
     justify-content: space-evenly;
 }
 body{
-    background-image: url("Image/backsite.jpg");
-    background-size: cover;
+    /* background-image: url("Image/backsite.jpg");
+    background-size: cover; */
+    background-color: #2b4753;
 }
 
 #parent{
