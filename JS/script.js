@@ -290,11 +290,12 @@ function game() {
                   case 500:
                       $('#l').animate({opacity:1},900);
                     break;
-                  case 50:
-                      $('#cv').animate({opacity:1},900);
-                    break;
                 }
+                if(cv){
+                    $('#cv').fadeIn('slow');
+}
                 });
+                
 
                 // Isolation du request
                 if(touch != true){
