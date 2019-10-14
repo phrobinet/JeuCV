@@ -16,6 +16,6 @@ Le jeu gère les collisions, c'est-à-dire la gestion des interactions entre les
 
 #### Le lien:
 
-Vous pouvez accéder au site www.philippe-robinet.com
+Vous pouvez accéder au site https://jeucv-3414e.firebaseapp.com/
 
 
